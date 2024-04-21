@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Tic Tac Toe</title>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--    libs for stomp and sockjs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!--    end libs for stomp and sockjs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="animation-wrapper">
+
+         
+    <header class="text-center">
+        <h1>Tic Tac Toe</h1>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center"> <!-- Ustawienie szerokości kolumny i centrowanie tekstu -->
+                <input id="login" class="form-control mb-3 custom-input" placeholder="Login"> <!-- Dodanie mb-3 dla marginesu na dole -->
+                <div class="d-flex justify-content-center"> <!-- Ustawienie przycisków obok siebie -->
+                    <button class="btn btn-outline-dark mr-1 form-control" onclick="create_game()">Create a new game</button> <!-- Dodanie mr-1 dla odstępu między przyciskami -->
+                    <button class="btn btn-outline-dark ml-1 form-control" onclick="connectToRandom()">Connect to random game</button> <!-- Dodanie ml-1 dla odstępu między przyciskami -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center"> <!-- Ustawienie szerokości kolumny i centrowanie tekstu -->
+                <input id="game_id" class="form-control mb-3 custom-input" placeholder="Paste game id">
+                <div class="d-flex justify-content-center"> <!-- Ustawienie przycisków obok siebie -->
+                    <button class="btn btn-outline-dark form-control" onclick="connectToSpecificGame()">Connect by game id</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="text-center" id="box">
+        <div id="message"></div>
+        <ul id="gameBoard">
+            <li class="tic" id="0_0"></li>
+            <li class="tic" id="0_1"></li>
+            <li class="tic" id="0_2"></li>
+            <li class="tic" id="1_0"></li>
+            <li class="tic" id="1_1"></li>
+            <li class="tic" id="1_2"></li>
+            <li class="tic" id="2_0"></li>
+            <li class="tic" id="2_1"></li>
+            <li class="tic" id="2_2"></li>
+        </ul>
+        <div class="clearfix"></div>
+
+    </div>
+    <div>
+        <span>Game id: <span id="gameId"></span></span>
+    </div>
+    <div>
+        <span>Opponent: <span id="opponentLogin"></span></span>
+    </div>
+
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+
+
+
+    </div>
+
+
+
+
+    
+   
+
+    <script src="js/script.js"></script>
+    <script src="js/socket_js.js"></script>
+</body>
+
+</html>
