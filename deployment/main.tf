@@ -5,7 +5,7 @@ provider "aws" {
 
 resource "aws_instance" "tic_tac_toe_game2" {
   ami = "ami-04e5276ebb8451442"
-  instance_type = "t2.small"
+  instance_type = "t2.micro"
   key_name = "tic_tac_toe_key_pair_2"
   associate_public_ip_address = true
   vpc_security_group_ids = [aws_security_group.security_group_tic_tac_toe_game2.id]
