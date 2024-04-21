@@ -22,7 +22,7 @@ import java.util.Collections;
 public class WebsocketConfiguration implements WebSocketMessageBrokerConfigurer {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/gameplay").setAllowedOrigins("http://host.docker.internal:8081")
+        registry.addEndpoint("/gameplay").setAllowedOrigins("https://host.docker.internal:8081")
                 .withSockJS();
 
     }
