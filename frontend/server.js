@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.static('public'));
 
-const targetAddress = process.env.PROXY_TARGET || 'http://54.211.46.191:8080';
+const targetAddress = process.env.PROXY_TARGET || 'http://54.144.11.34:8080';
 
 
 app.use('/game', createProxyMiddleware({ 
