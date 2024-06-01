@@ -5,13 +5,12 @@ const app = express();
 
 app.use(express.static('public'));
 
-const targetAddress = process.env.PROXY_TARGET || 'http://54.144.11.34:8080';
+const targetAddress = process.env.PROXY_TARGET || 'http://host.docker.internal:8080';
 
-
-app.use('/game', createProxyMiddleware({ 
-  target: targetAddress, 
-  ws: true, 
-  changeOrigin: true 
+app.use('/game', createProxyMiddleware({
+  target: targetAddress,
+  ws: true,
+  changeOrigin: true
 }));
 
 app.listen(8081, () => {
