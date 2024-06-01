@@ -2,7 +2,7 @@ let stompClient;
 var gameId;
 let playerType;
 let opponentName = "";
-const backendUrl = `http://localhost:8080/gameplay`;
+const backendUrl = `http://3.81.200.14/gameplay`;
 
 
 function connectToSocket(gameId) {
