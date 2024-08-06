@@ -5,12 +5,13 @@ const app = express();
 
 app.use(express.static('public'));
 
-const targetAddress = process.env.PROXY_TARGET || 'http://3.81.200.14:8080';
+const targetAddress = process.env.PROXY_TARGET || 'http://backend:8080';
 
-app.use('/game', createProxyMiddleware({
-  target: targetAddress,
-  ws: true,
-  changeOrigin: true
+
+app.use('/game', createProxyMiddleware({ 
+  target: targetAddress, 
+  ws: true, 
+  changeOrigin: true 
 }));
 
 app.listen(8081, () => {

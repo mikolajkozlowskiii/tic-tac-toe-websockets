@@ -2,12 +2,11 @@ let stompClient;
 var gameId;
 let playerType;
 let opponentName = "";
-const backendUrl = `http://3.81.200.14/gameplay`;
-
+const backendUrl = 'http://localhost:8080/gameplay';
 
 function connectToSocket(gameId) {
     console.log("connecting to the game");
-    let socket = new SockJS(backendUrl);
+    let socket = new SockJS(backendUrl); 
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         console.log("connected to the frame: " + frame);
@@ -39,7 +38,7 @@ function create_game() {
         alert("Please enter login");
     } else {
         $.ajax({
-            url: "/game/start",
+            url: "/game/start", 
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -48,7 +47,7 @@ function create_game() {
                 "symbol": playerType
             }),
             success: function (data) {
-                //gameId = data.gameId;
+               //gameId = data.gameId;
                 reset();
                 connectToSocket(data.gameId);
                 //alert("Game id: " + data.gameId);
@@ -70,7 +69,7 @@ function connectToRandom() {
         alert("Please enter login");
     } else {
         $.ajax({
-            url: "/game/connect/random",
+            url: "/game/connect/random", 
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
@@ -79,7 +78,7 @@ function connectToRandom() {
                 "symbol": playerType
             }),
             success: function (data) {
-                // gameId = data.gameId;
+               // gameId = data.gameId;
                 reset();
                 setGameId(data.gameId);
                 connectToSocket(gameId);
@@ -105,7 +104,7 @@ function connectToSpecificGame() {
             alert("Please enter game id");
         }
         $.ajax({
-            url: "/game/connect",
+            url: "/game/connect", 
             type: 'POST',
             dataType: "json",
             contentType: "application/json",
