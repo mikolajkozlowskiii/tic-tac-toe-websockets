@@ -4,6 +4,7 @@ let playerType;
 let opponentName = "";
 const backendUrl = 'http://localhost:8080/gameplay';
 
+
 function connectToSocket(gameId) {
     console.log("connecting to the game");
     let socket = new SockJS(backendUrl); 
